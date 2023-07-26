@@ -1,3 +1,3 @@
-# tailwindpack
+# Demotivational Quote Generator
 
-Boilerplate for tailwind website build with webpack
+My Project to burn my low motivation coding spirit
