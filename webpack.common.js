@@ -28,6 +28,17 @@ module.exports = {
           'postcss-loader',
         ],
       },
+      // Rule to handle Font Awesome CSS files
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+
+      // Rule to handle Font Awesome font files
+      {
+        test: /\.(woff(2)?|eot|ttf|otf)(\?v=\d+\.\d+\.\d+)?$/,
+        type: 'asset/inline',
+      },
     ],
   },
   /* plugin */
