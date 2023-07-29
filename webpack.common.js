@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/scripts/index.js',
@@ -28,12 +29,6 @@ module.exports = {
           'postcss-loader',
         ],
       },
-      // Rule to handle Font Awesome CSS files
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      },
-
       // Rule to handle Font Awesome font files
       {
         test: /\.(woff(2)?|eot|ttf|otf)(\?v=\d+\.\d+\.\d+)?$/,
@@ -47,6 +42,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/templates/index.html',
       filename: 'index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/public/'),
+          to: path.resolve(__dirname, 'dist/'),
+        },
+      ],
     }),
   ],
 };
