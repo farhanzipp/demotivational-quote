@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import '../styles/styles.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import 'regenerator-runtime';
@@ -7,4 +8,13 @@ const app = new App({
   button: document.querySelector('#hamburger-btn'),
   drawer: document.querySelector('#nav-drawer'),
   content: document.querySelector('main'),
+  footer: document.querySelector('#copyright-year'),
+});
+
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  app.renderPage();
 });

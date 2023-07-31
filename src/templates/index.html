@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./favicon.png">
-    <title>Tailwind Site</title>
+    <title>Aniquote</title>
 </head>
 <body class="flex flex-col min-h-screen">
     <header class="flex justify-between p-4 bg-gray-800">
         <h1 class="text-2xl font-bold text-slate-50">
-            <a href="#">Demotiquote</a>
+            <a href="#">Aniquote</a>
         </h1>
         <nav class="flex h-8">
             <ul id="nav-drawer" class="fixed w-60 mt-11 p-1 right-0 translate-x-60 shadow-sm text-center text-lg bg-orange-400 sm:relative sm:flex sm:justify-between sm:right-0 sm:text-slate-50 sm:translate-x-0 sm:m-0 sm:bg-transparent sm:shadow-none ">
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Favorites</a></li>
-                <li><a href="#">Menu</a></li>
+                <li class="sm:hover:text-orange-400"><a href="#/">Home</a></li>
+                <li><a href="#/favorite">Favorites</a></li>
+                <li><a href="#/contact">Menu</a></li>
             </ul>
             <button id="hamburger-btn" class="text-white text-xl sm:hidden">
                 <i class="fas fa-bars"></i>
@@ -23,46 +23,12 @@
         </nav>
     </header>
 
-    <main class="container mx-auto">
-        <h1 class="py-1 text-center text-red-950 font-serif font-semibold bg-red-500">Demotivational Quote for Life</h1>
-        <div class="w-2/3 mx-auto mt-8 p-10 text-center rounded-lg text-slate-50 bg-slate-700 md:w-1/2">
-            <blockquote>
-                <p class="text-lg font-medium">"The reward for good work is more work."</p>
-            </blockquote>
-            <div class="m-4 text-sky-500">
-                Anonim
-            </div>
-        </div>
-
-        <div class="mt-20">
-            <h1 class="text-center">My Recent Lovely Quotes</h1>
-            <ul>
-                <li>
-                    <div class="w-2/3 mx-auto my-2 p-4 rounded-lg text-slate-100 bg-slate-500 md:w-1/2">
-                        <p>Live is Love tapi boong</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="w-2/3 mx-auto my-2 p-4 rounded-lg text-slate-100 bg-slate-500 md:w-1/2">
-                        <p>Live is Love tapi boong</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="w-2/3 mx-auto my-2 p-4 rounded-lg text-slate-100 bg-slate-500 md:w-1/2">
-                        <p>Live is Love tapi boong</p>
-                    </div>
-                </li>
-                <li>
-                    <div class="w-2/3 mx-auto my-2 p-4 rounded-lg text-slate-100 bg-slate-500 md:w-1/2">
-                        <p>Live is Love tapi boong</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <main id="main-content" class="container mx-auto">
     </main>
 
     <footer class="w-full p-1 text-center text-slate-50 bg-slate-950">
-        <p>100% made with <span><i class="fas fa-heart-broken"></i></span></p>
+        
+        <p>© <span id="copyright-year"></span> powered by Katanime</p>
     </footer>
 
 
