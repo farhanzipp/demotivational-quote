@@ -7,7 +7,7 @@ import App from './views/app';
 const app = new App({
   button: document.querySelector('#hamburger-btn'),
   drawer: document.querySelector('#nav-drawer'),
-  content: document.querySelector('main'),
+  content: document.querySelector('#main-content'),
   footer: document.querySelector('#copyright-year'),
 });
 
