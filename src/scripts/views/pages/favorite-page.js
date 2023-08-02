@@ -9,21 +9,6 @@ const FavoritePage = {
                     <p>Live is Love tapi boong</p>
                 </div>
             </li>
-            <li>
-                <div class="w-2/3 mx-auto my-2 p-4 rounded-lg text-slate-100 bg-slate-500 md:w-1/2">
-                    <p>Live is Love tapi boong</p>
-                </div>
-            </li>
-            <li>
-                <div class="w-2/3 mx-auto my-2 p-4 rounded-lg text-slate-100 bg-slate-500 md:w-1/2">
-                    <p>Live is Love tapi boong</p>
-                </div>
-            </li>
-            <li>
-                <div class="w-2/3 mx-auto my-2 p-4 rounded-lg text-slate-100 bg-slate-500 md:w-1/2">
-                    <p>Live is Love tapi boong</p>
-                </div>
-            </li>
         </ul>
     </div>
           `;

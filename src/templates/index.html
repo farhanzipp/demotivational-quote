@@ -4,24 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="./favicon.png">
+    <script src="https://kit.fontawesome.com/d93f807422.js" crossorigin="anonymous"></script>
     <title>Aniquote</title>
 </head>
 <body class="flex flex-col min-h-screen">
-    <header class="flex justify-between p-4 bg-gray-800">
-        <h1 class="text-2xl font-bold text-slate-50">
-            <a href="#">Aniquote</a>
-        </h1>
-        <nav class="flex h-8">
-            <ul id="nav-drawer" class="fixed w-60 mt-11 p-1 right-0 translate-x-60 shadow-sm text-center text-lg bg-orange-400 sm:relative sm:flex sm:justify-between sm:right-0 sm:text-slate-50 sm:translate-x-0 sm:m-0 sm:bg-transparent sm:shadow-none ">
-                <li class="sm:hover:text-orange-400"><a href="#/">Home</a></li>
-                <li><a href="#/favorite">Favorites</a></li>
-                <li><a href="#/contact">Menu</a></li>
-            </ul>
-            <button id="hamburger-btn" class="text-white text-xl sm:hidden">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
+    <app-bar></app-bar>
 
     <main>
         <div id="main-content" class="container flex flex-col mx-auto"></div>

@@ -4,7 +4,8 @@ class AnimeQuoteSource {
   static async generateRandomQuotes() {
     const response = await fetch(API_ENDPOINT.RANDOM);
     const responseJson = await response.json();
-    return responseJson.result;
+    // i want to return first object only
+    return responseJson.result[0];
   }
 }
 

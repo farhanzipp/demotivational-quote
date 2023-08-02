@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import '../styles/styles.css';
-import '@fortawesome/fontawesome-free/css/all.css';
 import 'regenerator-runtime';
 import App from './views/app';
+import './components/app-bar';
+import swRegister from './utils/sw-register';
 
 const app = new App({
   button: document.querySelector('#hamburger-btn'),
@@ -17,4 +18,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });
