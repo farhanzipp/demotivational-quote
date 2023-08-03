@@ -4,6 +4,7 @@ import 'regenerator-runtime';
 import App from './views/app';
 import './components/app-bar';
 import swRegister from './utils/sw-register';
+// import './utils/fontawesome-lib';
 
 const app = new App({
   button: document.querySelector('#hamburger-btn'),

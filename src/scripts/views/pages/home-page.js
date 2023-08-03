@@ -8,10 +8,10 @@ const HomePage = {
           <div id="quote-text"></div>
           <div id="quote-share" class="flex justify-between text-white">
             <button id="copy-btn" class="hover:text-sky-200" title="copy">
-              <i class="fa-regular fa-clipboard"></i>
+              <i class="far fa-clipboard"></i>
             </button>
             <button id="save-btn" class="hover:text-sky-200" title="save quote">
-              <i class="fa-regular fa-bookmark"></i>
+              <i class="far fa-bookmark"></i>
             </button>
           </div>
       </div>
