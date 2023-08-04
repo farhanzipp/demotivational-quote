@@ -1,4 +1,5 @@
 import AnimeQuoteSource from '../../data/animequote-source';
+import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
 import { createQuoteCard } from '../templates/template-creator';
 
 const HomePage = {
@@ -8,11 +9,13 @@ const HomePage = {
           <div id="quote-text"></div>
           <div id="quote-share" class="flex justify-between text-white">
             <button id="copy-btn" class="hover:text-sky-200" title="copy">
-              <i class="far fa-clipboard"></i>
+              <i class="fa-regular fa-clipboard"></i>
             </button>
-            <button id="save-btn" class="hover:text-sky-200" title="save quote">
-              <i class="far fa-bookmark"></i>
-            </button>
+            <div id="fav-btn-container">
+              <button id="save-btn" class="hover:text-sky-200" title="save quote">
+                <i class="fa-regular fa-bookmark"></i>
+              </button>
+            </div>
           </div>
       </div>
       <button id="generate-quote" class="w-4/5 mx-auto my-2 p-2 text-white font-bold bg-sky-700 hover:bg-sky-500 md:w-1/5"> RANDOM </button>
@@ -20,11 +23,8 @@ const HomePage = {
   },
 
   async afterRender() {
-    const generateQuoteBtn = document.querySelector('#generate-quote');
     const quoteContainer = document.querySelector('#quote-text');
-    // const textToCopy = document.querySelector('#quote-text-EN');
-    const copyBtn = document.querySelector('#copy-btn');
-    let quotes = [];
+    const generateQuoteBtn = document.querySelector('#generate-quote');
 
     const updateQuoteDOM = (quoteObj) => {
       quoteContainer.innerHTML = createQuoteCard(quoteObj);
@@ -32,6 +32,7 @@ const HomePage = {
 
     const generateQuote = async () => {
       try {
+        let quotes = [];
         const newQuotes = await AnimeQuoteSource.generateRandomQuotes();
         quotes = newQuotes;
         updateQuoteDOM(quotes);
@@ -42,11 +43,13 @@ const HomePage = {
     generateQuoteBtn.addEventListener('click', generateQuote);
     generateQuote();
 
-    const copyQuoteToClipboard = async () => {
-      // navigator.clipboard.writeText();
-      console.log(quoteContainer);
-    };
-    copyBtn.addEventListener('click', copyQuoteToClipboard);
+    // FavoriteButtonInitiator.init({
+    //   favoriteButtonContainer: document.querySelector('#fav-btn-container'),
+    //   quote: {
+    //     id: quote.id,
+    //     anime: quote.anime,
+    //   }
+    // })
   },
 };
 

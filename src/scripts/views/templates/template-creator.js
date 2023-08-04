@@ -10,9 +10,15 @@ const createQuoteCard = (quote) => `
 `;
 
 const createLikeButton = () => `
-  <button aria-label="like this movie" id="likeButton" class="like">
+  <button aria-label="like this movie" id="favButton" class="like">
+     <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
+  </button>
+`;
+
+const createUnlikeButton = () => `
+  <button aria-label="like this movie" id="favButton" class="like">
      <i class="fa fa-heart-o" aria-hidden="true"></i>
   </button>
 `;
 
-export { createQuoteCard, createLikeButton };
+export { createQuoteCard, createLikeButton, createUnlikeButton };
