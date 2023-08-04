@@ -1,7 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: './src/scripts/index.js',
@@ -30,11 +29,6 @@ module.exports = {
           'postcss-loader',
         ],
       },
-      // Rule to handle Font Awesome font files
-      {
-        test: /\.(woff(2)?|eot|ttf|otf)(\?v=\d+\.\d+\.\d+)?$/,
-        type: 'asset/inline',
-      },
     ],
   },
   /* plugin */
@@ -51,9 +45,6 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/'),
         },
       ],
-    }),
-    new WorkboxWebpackPlugin.GenerateSW({
-      swDest: './sw.bundle.js',
     }),
   ],
 };

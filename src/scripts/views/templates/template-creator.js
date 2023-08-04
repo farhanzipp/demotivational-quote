@@ -9,6 +9,12 @@ const createQuoteCard = (quote) => `
     </div>
 `;
 
+const createGenerateButton = () => `
+   <button id="generate-quote" class="w-4/5 mx-auto my-2 p-2 text-white font-bold bg-sky-700 hover:bg-sky-500 md:w-1/5"> 
+      RANDOM 
+   </button>
+`;
+
 const createLikeButton = () => `
   <button aria-label="like this movie" id="favButton" class="like">
      <i class="fa-regular fa-bookmark" aria-hidden="true"></i>
@@ -21,4 +27,6 @@ const createUnlikeButton = () => `
   </button>
 `;
 
-export { createQuoteCard, createLikeButton, createUnlikeButton };
+export {
+  createQuoteCard, createGenerateButton, createLikeButton, createUnlikeButton,
+};

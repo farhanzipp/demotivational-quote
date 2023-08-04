@@ -24,10 +24,10 @@ const FavoritePage = {
     const quotesContainer = document.querySelector('#quote');
     const favoriteButtonContainer = document.querySelector('#favoriteButtonContainer');
 
-    quotes.forEach((quote) => {
-      quotesContainer.innerHTML += `${quote.anime}`;
-    });
-    favoriteButtonContainer.innerHTML = createLikeButton();
+    // quotes.forEach((quote) => {
+    //   quotesContainer.innerHTML += `${quote.anime}`;
+    // });
+    // favoriteButtonContainer.innerHTML = createLikeButton();
   },
 };
 
