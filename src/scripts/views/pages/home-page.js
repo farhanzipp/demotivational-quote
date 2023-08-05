@@ -6,8 +6,9 @@ const HomePage = {
     return `
       <div class="w-4/5 min-h-96 mx-auto mt-8 p-8 text-center rounded-lg text-slate-50 bg-slate-700 md:w-1/2">
           <div id="quote-text">
-            <p>Click Random to generate Quote !!!</p>
+            <p><loader-spin></loader-spin></p>
             <p><i class="fa fa-arrow-down" aria-hidden="true"></i></p>
+
           </div>
           <div id="quote-share" class="flex justify-between text-white">
             <button id="copy-btn" class="hover:text-sky-200" title="copy">
@@ -37,6 +38,7 @@ const HomePage = {
     GenerateButtonInitiator.init(generateButton);
 
     generateButton.button.addEventListener('click', async () => {
+      quoteTextContainer.innerHTML = 'wait';
       await GenerateButtonInitiator.renderDisplay();
       quoteTextContainer.innerHTML = createQuoteCard(quote.result);
     });

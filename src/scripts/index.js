@@ -1,8 +1,10 @@
 /* eslint-disable no-unused-vars */
 import '../styles/styles.css';
+import '../styles/loader.css';
 import 'regenerator-runtime';
 import App from './views/app';
 import './components/app-bar';
+import './components/loader-spin';
 import swRegister from './utils/sw-register';
 
 const app = new App({
