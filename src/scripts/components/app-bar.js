@@ -17,7 +17,7 @@ class AppBar extends HTMLElement {
                         <li><a href="#/contact">Contact</a></li>
                     </ul>
                     <button id="hamburger-btn" class="text-white text-xl sm:hidden">
-                        <i class="fas fa-bars"></i>
+                        <i class="fa fa-bars"></i>
                     </button>
                 </nav>
             </div>

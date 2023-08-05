@@ -1,19 +1,17 @@
-import { createGenerateButton } from '../views/templates/template-creator';
+import AnimeQuoteSource from '../data/animequote-source';
 
 const GenerateButtonInitiator = {
-  async init(generateButtonContainer) {
-    this._generateButtonContainer = generateButtonContainer;
-    // this._quote = quote;
+  async init({ button, container }) {
+    this._container = container;
 
-    await this._renderButton;
-  },
-  async _renderButton() {
-    this._generateButtonContainer.innerHtml = createGenerateButton();
-    const generateBtn = document.querySelector('#generate-quote');
-    generateBtn.addEventListener('click', () => {
-      const textToPrint = 'hello world';
-      console.log(textToPrint);
+    button.addEventListener('click', () => {
+      this.renderDisplay();
     });
+  },
+
+  async renderDisplay() {
+    const quote = await AnimeQuoteSource.generateRandomQuotes();
+    this._container.result = quote;
   },
 };
 
