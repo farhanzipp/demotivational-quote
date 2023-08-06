@@ -6,7 +6,12 @@ const FavoriteButtonInitiator = {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._quote = quote;
 
-    await this._renderButton;
+    await this._renderConsole();
+    console.log(quote);
+  },
+
+  async _renderConsole() {
+    console.log(this._quote);
   },
 
   async _renderButton() {

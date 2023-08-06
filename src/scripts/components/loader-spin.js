@@ -5,7 +5,9 @@ class LoaderSpin extends HTMLElement {
 
   render() {
     this.innerHTML = `
-        <div class="loader"></div>
+      <div class="flex justify-center items-center min-h-[20vh]">
+        <div id="loader" class="border-top"></div>
+      </div>
       `;
   }
 }
