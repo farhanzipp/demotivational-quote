@@ -1,8 +1,7 @@
 import addTooltips from '../../utils/add-tooltips';
 import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
-// import FavoriteButtonInitiator from '../../utils/favorite-button-initiator';
-import GenerateButtonInitiator from '../../utils/generate-button-initiator';
-import { createQuoteCard, createLikeButton } from '../templates/template-creator';
+import { createQuoteCard } from '../templates/template-creator';
+import renderQuoteObject from '../../utils/generate-quote-object';
 
 const HomePage = {
   async render() {
@@ -36,25 +35,22 @@ const HomePage = {
     const tooltipsLabel = document.querySelector('#tooltips-label');
     const favButtonContainer = document.querySelector('#fav-btn-container');
 
-    const quote = {};
+    let quote = null;
 
-    // favButtonContainer.innerHTML = createLikeButton();
-
-    GenerateButtonInitiator.init({
-      button: generateQuoteButton,
-      objContainer: quote,
-    });
+    const updateQuote = (newQuote) => {
+      quote = newQuote;
+      return quote;
+    };
 
     generateQuoteButton.addEventListener('click', async () => {
       quoteTextContainer.innerHTML = '<loader-spin></loader-spin>';
-      await GenerateButtonInitiator.renderQuoteObject();
-      quoteTextContainer.innerHTML = createQuoteCard(quote.result);
+      await renderQuoteObject(updateQuote);
+      quoteTextContainer.innerHTML = createQuoteCard(quote);
     });
 
     copyQuoteButton.addEventListener('click', async () => {
       try {
-        const quoteToCopy = quote.result;
-        const textToCopy = `"${quoteToCopy.english}" - ${quoteToCopy.character}`;
+        const textToCopy = `"${quote.english}" - ${quote.character}`;
         await navigator.clipboard.writeText(textToCopy);
         addTooltips({ label: tooltipsLabel });
       } catch {
@@ -62,9 +58,10 @@ const HomePage = {
       }
     });
 
+    await console.log(quote);
     FavoriteButtonInitiator.init({
       favoriteButtonContainer: favButtonContainer,
-      quoteObj: quote,
+      quote,
     });
   },
 };
