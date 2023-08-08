@@ -1,15 +1,15 @@
 import AnimeQuoteSource from '../data/animequote-source';
 
 const GenerateButtonInitiator = {
-  async init({ button, container }) {
-    this._container = container;
+  async init({ button, objContainer }) {
+    this._container = objContainer;
 
     button.addEventListener('click', () => {
-      this.renderDisplay();
+      this.renderQuoteObject();
     });
   },
 
-  async renderDisplay() {
+  async renderQuoteObject() {
     const quote = await AnimeQuoteSource.generateRandomQuotes();
     this._container.result = quote;
   },

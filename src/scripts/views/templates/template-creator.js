@@ -10,13 +10,13 @@ const createQuoteCard = (quote) => `
 `;
 
 const createLikeButton = () => `
-  <button aria-label="like this movie" id="favButton" class="like">
-    <i class="fa fa-arrow-down" aria-hidden="true"></i>
+  <button aria-label="like this movie" id="fav-btn" class="like">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
   </button>
 `;
 
 const createUnlikeButton = () => `
-  <button aria-label="like this movie" id="favButton" class="like">
+  <button aria-label="like this movie" id="fav-btn" class="unlike">
     <i class="fa fa-bookmark-o"></i>
   </button>
 `;

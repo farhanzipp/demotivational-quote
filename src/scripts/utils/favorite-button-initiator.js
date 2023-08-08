@@ -2,23 +2,28 @@ import FavoriteQuoteIdb from '../data/fav-quote-idb';
 import { createLikeButton, createUnlikeButton } from '../views/templates/template-creator';
 
 const FavoriteButtonInitiator = {
-  async init({ favoriteButtonContainer, quote }) {
+  async init({ favoriteButtonContainer, quoteObj }) {
     this._favoriteButtonContainer = favoriteButtonContainer;
-    this._quote = quote;
+    this._quoteObj = quoteObj;
 
-    await this._renderConsole();
-    console.log(quote);
+    await this._renderButton();
   },
 
   async _renderConsole() {
-    console.log(this._quote);
+    const favButton = document.querySelector('#fav-btn');
+
+    favButton.addEventListener('click', async () => {
+      console.log(this._quoteObj);
+      console.log(this._quoteObj.result);
+    });
   },
 
   async _renderButton() {
-    const { id } = this._quote;
+    console.log(this._quoteObj);
+    // const { id } = this._quoteObj.result;
 
-    if (await this._isQuoteExist(id)) {
-      this._renderLiked();
+    if (await this._isQuoteExist()) {
+      this._renderlike();
     } else {
       this._renderUnlike();
     }
@@ -29,12 +34,12 @@ const FavoriteButtonInitiator = {
     return !!quote;
   },
 
-  _renderLiked() {
+  _renderLike() {
     this._favoriteButtonContainer.innerHtml = createLikeButton();
 
-    const favButton = document.querySelector('#favButton');
+    const favButton = document.querySelector('#fav-btn');
     favButton.addEventListener('click', async () => {
-      await FavoriteQuoteIdb.deleteQuote(this._quote.id);
+      await FavoriteQuoteIdb.deleteQuote(this._quote.result.id);
       this._renderButton();
     });
   },
@@ -42,9 +47,9 @@ const FavoriteButtonInitiator = {
   _renderUnlike() {
     this._favoriteButtonContainer.innerHtml = createUnlikeButton();
 
-    const favButton = document.querySelector('#favButton');
+    const favButton = document.querySelector('#fav-btn');
     favButton.addEventListener('click', async () => {
-      await FavoriteQuoteIdb.putQuote(this._quote);
+      await FavoriteQuoteIdb.putQuote(this._quote.result);
       this._renderButton();
     });
   },
