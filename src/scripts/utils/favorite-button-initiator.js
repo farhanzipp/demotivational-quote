@@ -11,17 +11,14 @@ const FavoriteButtonInitiator = {
 
   updateQuote(newQuote) {
     this._quote = newQuote;
-  },
-
-  async _renderConsole() {
-    this._favoriteButtonContainer.innerHTML = 'helo';
+    this._renderButton();
   },
 
   async _renderButton() {
     const { id } = this._quote;
 
     if (await this._isQuoteExist(id)) {
-      this._renderlike();
+      this._renderLike();
     } else {
       this._renderUnlike();
     }
@@ -34,10 +31,20 @@ const FavoriteButtonInitiator = {
 
   _renderLike() {
     this._favoriteButtonContainer.innerHTML = createLikeButton();
+    const favButton = document.querySelector('#fav-btn');
+    favButton.addEventListener('click', async () => {
+      await FavoriteQuoteIdb.deleteQuote(this._quote.id);
+      this._renderButton();
+    });
   },
 
   _renderUnlike() {
     this._favoriteButtonContainer.innerHTML = createUnlikeButton();
+    const favButton = document.querySelector('#fav-btn');
+    favButton.addEventListener('click', async () => {
+      await FavoriteQuoteIdb.putQuote(this._quote);
+      this._renderButton();
+    });
   },
 };
 

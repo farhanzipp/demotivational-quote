@@ -10,17 +10,32 @@ const createQuoteCard = (quote) => `
 `;
 
 const createLikeButton = () => `
-  <button aria-label="like this movie" id="fav-btn" class="like">
+  <button aria-label="unfavorite quote" id="fav-btn" class="hover:text-sky-200" title="remove from favorite">
     <i class="fa fa-bookmark" aria-hidden="true"></i>
   </button>
 `;
 
 const createUnlikeButton = () => `
-  <button aria-label="like this movie" id="fav-btn" class="unlike">
+  <button aria-label="add to favorite" id="fav-btn" class="hover:text-sky-200" title="add to favorite">
     <i class="fa fa-bookmark-o"></i>
   </button>
 `;
 
+const createFavoriteCards = (quote) => `
+<li>
+  <div id="${quote.id}" class="w-4/5 mx-auto my-2 px-2 rounded-lg text-white bg-slate-700 md:w-1/2">
+    <div class="flex justify-between items-center">
+      <p class="text-slate-400 font-mono text-xs">${quote.anime}</p>
+      <button aria-label="remove from favorite" id="close-btn" class="text-red-500 hover:text-sky-200" title="add to favorite">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <p id="quote-text-EN" class="m-2 text-lg text-center font-medium">${quote.english}</p>
+    <p class="text-right text-slate-400 font-mono text-xs">- ${quote.character}</p>
+    </div>
+</li>
+`;
+
 export {
-  createQuoteCard, createLikeButton, createUnlikeButton,
+  createQuoteCard, createLikeButton, createUnlikeButton, createFavoriteCards,
 };

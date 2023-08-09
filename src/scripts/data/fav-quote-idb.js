@@ -13,6 +13,9 @@ const FavoriteQuoteIdb = {
   async getQuote(id) {
     return (await dbPromise).get(OBJECT_STORE_NAME, id);
   },
+  async getAllQuotes() {
+    return (await dbPromise).getAll(OBJECT_STORE_NAME);
+  },
   async putQuote(quote) {
     return (await dbPromise).put(OBJECT_STORE_NAME, quote);
   },

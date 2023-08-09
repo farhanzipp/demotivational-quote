@@ -12,7 +12,7 @@ const HomePage = {
                 </div>
                 
                 <div id="quote-share" class="flex justify-between text-white">
-                  <button id="copy-btn" class="hover:text-sky-200" title="copy">
+                  <button id="copy-btn" class="hover:text-sky-200" title="copy this quote">
                     <i class="fa fa-clone"></i>
                     <span id="tooltips-label" class="font-mono hidden">Copied!</span>
                   </button>
@@ -47,18 +47,26 @@ const HomePage = {
       FavoriteButtonInitiator.updateQuote(quote);
     };
 
-    await renderAndUpdateQuote();
-    generateQuoteButton.addEventListener('click', renderAndUpdateQuote());
-
-    copyQuoteButton.addEventListener('click', async () => {
-      try {
-        const textToCopy = `"${quote.english}" - ${quote.character}`;
-        await navigator.clipboard.writeText(textToCopy);
-        addTooltips({ label: tooltipsLabel });
-      } catch {
-        console.log('nothing to copy');
+    const copyQuote = async () => {
+      if (quote) {
+        try {
+          const textToCopy = `"${quote.english}" - ${quote.character}`;
+          if (navigator.clipboard) {
+            await navigator.clipboard.writeText(textToCopy);
+          } else {
+            console.error('Clipboard API is not supported.');
+          }
+          addTooltips({ label: tooltipsLabel });
+        } catch (error) {
+          console.error('Error copying quote:', error);
+        }
       }
-    });
+    };
+
+    await renderAndUpdateQuote();
+    generateQuoteButton.addEventListener('click', renderAndUpdateQuote);
+
+    copyQuoteButton.addEventListener('click', copyQuote);
 
     FavoriteButtonInitiator.init({
       favoriteButtonContainer: favButtonContainer,
