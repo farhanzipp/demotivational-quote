@@ -6,7 +6,15 @@ const FavoriteButtonInitiator = {
     this._favoriteButtonContainer = favoriteButtonContainer;
     this._quote = quote;
 
-    await this._renderButton();
+    this._renderButton();
+  },
+
+  updateQuote(newQuote) {
+    this._quote = newQuote;
+  },
+
+  async _renderConsole() {
+    this._favoriteButtonContainer.innerHTML = 'helo';
   },
 
   async _renderButton() {
@@ -25,11 +33,11 @@ const FavoriteButtonInitiator = {
   },
 
   _renderLike() {
-    this._favoriteButtonContainer.innerHtml = createLikeButton();
+    this._favoriteButtonContainer.innerHTML = createLikeButton();
   },
 
   _renderUnlike() {
-    this._favoriteButtonContainer.innerHtml = createUnlikeButton();
+    this._favoriteButtonContainer.innerHTML = createUnlikeButton();
   },
 };
 

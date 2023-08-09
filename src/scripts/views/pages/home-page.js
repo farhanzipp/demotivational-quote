@@ -17,9 +17,7 @@ const HomePage = {
                     <span id="tooltips-label" class="font-mono hidden">Copied!</span>
                   </button>
                   
-                  <div id="fav-btn-container">
-                  
-                  </div>
+                  <div id="fav-btn-container"></div>
                 </div>
             </div>
 
@@ -42,11 +40,15 @@ const HomePage = {
       return quote;
     };
 
-    generateQuoteButton.addEventListener('click', async () => {
+    const renderAndUpdateQuote = async () => {
       quoteTextContainer.innerHTML = '<loader-spin></loader-spin>';
       await renderQuoteObject(updateQuote);
       quoteTextContainer.innerHTML = createQuoteCard(quote);
-    });
+      FavoriteButtonInitiator.updateQuote(quote);
+    };
+
+    await renderAndUpdateQuote();
+    generateQuoteButton.addEventListener('click', renderAndUpdateQuote());
 
     copyQuoteButton.addEventListener('click', async () => {
       try {
@@ -58,7 +60,6 @@ const HomePage = {
       }
     });
 
-    await console.log(quote);
     FavoriteButtonInitiator.init({
       favoriteButtonContainer: favButtonContainer,
       quote,
