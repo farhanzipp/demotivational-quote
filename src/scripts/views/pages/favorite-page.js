@@ -14,10 +14,22 @@ const FavoritePage = {
   async afterRender() {
     const quotes = await FavoriteQuoteIdb.getAllQuotes();
     const favoriteQuotesContainer = document.querySelector('#favorite-quotes-container');
-    const deleteFavoriteButton = document.querySelector('#close-btn');
 
     quotes.forEach((quote) => {
       favoriteQuotesContainer.innerHTML += createFavoriteCards(quote);
+    });
+
+    const deleteButtons = document.querySelectorAll('.delete-btn');
+
+    deleteButtons.forEach((deleteButton) => {
+      deleteButton.addEventListener('click', (e) => {
+        const quoteId = e.target.getAttribute('value');
+        // eslint-disable-next-line radix
+        const id = parseInt(quoteId); // id in number type
+        FavoriteQuoteIdb.deleteQuote(id); // remove from db
+        const card = document.getElementById(quoteId);
+        card.remove(); // remove from DOM
+      });
     });
   },
 };

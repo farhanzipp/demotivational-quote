@@ -22,12 +22,12 @@ const createUnlikeButton = () => `
 `;
 
 const createFavoriteCards = (quote) => `
-<li>
-  <div id="${quote.id}" class="w-4/5 mx-auto my-2 px-2 rounded-lg text-white bg-slate-700 md:w-1/2">
+<li id="${quote.id}">
+  <div class="w-4/5 mx-auto my-2 px-2 rounded-lg text-white bg-slate-700 md:w-1/2">
     <div class="flex justify-between items-center">
       <p class="text-slate-400 font-mono text-xs">${quote.anime}</p>
-      <button aria-label="remove from favorite" id="close-btn" class="text-red-500 hover:text-sky-200" title="add to favorite">
-        <i class="fa fa-times"></i>
+      <button class="delete-btn text-red-500 hover:text-sky-200" title="delete from favorite">
+        <i class="fa fa-times" value="${quote.id}"></i>
       </button>
     </div>
     <p id="quote-text-EN" class="m-2 text-lg text-center font-medium">${quote.english}</p>
